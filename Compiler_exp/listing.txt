@@ -1,0 +1,108 @@
+--- 开始完整分析流程 ---
+
+--- 1. 词法分析与语法分析 (生成 AST) ---
+词法及语法分析成功，AST已生成。
+
+--- 2. 语义分析 ---
+--- 开始语义分析 ---
+程序名 'p' 已处理: p               | programkind     | Type(kind=program, size=0)                                   | L0   | Offs 0    
+分析类型声明 (TypeK)...
+  已声明类型别名: t1              | typekind        | Alias(name=t1 -> Type(kind=integer, size=1)) (size: 1)       | L0   | Offs 0    
+
+--- 类型声明之后 (文件日志) ---
+作用域层次: 0 (下一可用偏移: 0)
+  integer         | typekind        | Type(kind=integer, size=1)                                   | L0   | Offs 0    
+  char            | typekind        | Type(kind=char, size=1)                                      | L0   | Offs 0    
+  boolean         | typekind        | Type(kind=boolean, size=1)                                   | L0   | Offs 0    
+  p               | programkind     | Type(kind=program, size=0)                                   | L0   | Offs 0    
+  t1              | typekind        | Alias(name=t1 -> Type(kind=integer, size=1)) (size: 1)       | L0   | Offs 0    
+--- 快照结束 (类型声明之后 (文件日志)) ---
+
+分析变量声明 (VarK)...
+  已声明变量: v1              | varkind         | Type(kind=integer, size=1)                                   | L0   | Offs 0    
+  已声明变量: v2              | varkind         | Type(kind=integer, size=1)                                   | L0   | Offs 1    
+
+--- 变量声明之后 (文件日志) ---
+作用域层次: 0 (下一可用偏移: 2)
+  integer         | typekind        | Type(kind=integer, size=1)                                   | L0   | Offs 0    
+  char            | typekind        | Type(kind=char, size=1)                                      | L0   | Offs 0    
+  boolean         | typekind        | Type(kind=boolean, size=1)                                   | L0   | Offs 0    
+  p               | programkind     | Type(kind=program, size=0)                                   | L0   | Offs 0    
+  t1              | typekind        | Alias(name=t1 -> Type(kind=integer, size=1)) (size: 1)       | L0   | Offs 0    
+  v1              | varkind         | Type(kind=integer, size=1)                                   | L0   | Offs 0    
+  v2              | varkind         | Type(kind=integer, size=1)                                   | L0   | Offs 1    
+--- 快照结束 (变量声明之后 (文件日志)) ---
+
+分析过程声明: q...
+  已声明过程: q               | prockind        | ProcType(params=[])                                          | L0   | Offs 0     Params()
+  进入过程 'q' 作用域 (层次 1, 下一偏移量 0)
+  分析参数 (ParamListK)...
+    已声明参数: i               | valparamkind    | Type(kind=integer, size=1)                                   | L1   | Offs 0    
+
+--- 过程 q 参数处理后 (文件日志) ---
+作用域层次: 0 (下一可用偏移: 2)
+  integer         | typekind        | Type(kind=integer, size=1)                                   | L0   | Offs 0    
+  char            | typekind        | Type(kind=char, size=1)                                      | L0   | Offs 0    
+  boolean         | typekind        | Type(kind=boolean, size=1)                                   | L0   | Offs 0    
+  p               | programkind     | Type(kind=program, size=0)                                   | L0   | Offs 0    
+  t1              | typekind        | Alias(name=t1 -> Type(kind=integer, size=1)) (size: 1)       | L0   | Offs 0    
+  v1              | varkind         | Type(kind=integer, size=1)                                   | L0   | Offs 0    
+  v2              | varkind         | Type(kind=integer, size=1)                                   | L0   | Offs 1    
+  q               | prockind        | ProcType(params=[Param(name='i', type=Type(kind=integer, size=1), var=False)]) | L0   | Offs 0     Params(i: Type(kind=integer, size=1))
+作用域层次: 1 (下一可用偏移: 1)
+  i               | valparamkind    | Type(kind=integer, size=1)                                   | L1   | Offs 0    
+--- 快照结束 (过程 q 参数处理后 (文件日志)) ---
+
+分析变量声明 (VarK)...
+  已声明变量: a               | varkind         | Type(kind=integer, size=1)                                   | L1   | Offs 1    
+
+--- 变量声明之后 (文件日志) ---
+作用域层次: 0 (下一可用偏移: 2)
+  integer         | typekind        | Type(kind=integer, size=1)                                   | L0   | Offs 0    
+  char            | typekind        | Type(kind=char, size=1)                                      | L0   | Offs 0    
+  boolean         | typekind        | Type(kind=boolean, size=1)                                   | L0   | Offs 0    
+  p               | programkind     | Type(kind=program, size=0)                                   | L0   | Offs 0    
+  t1              | typekind        | Alias(name=t1 -> Type(kind=integer, size=1)) (size: 1)       | L0   | Offs 0    
+  v1              | varkind         | Type(kind=integer, size=1)                                   | L0   | Offs 0    
+  v2              | varkind         | Type(kind=integer, size=1)                                   | L0   | Offs 1    
+  q               | prockind        | ProcType(params=[Param(name='i', type=Type(kind=integer, size=1), var=False)]) | L0   | Offs 0     Params(i: Type(kind=integer, size=1))
+作用域层次: 1 (下一可用偏移: 2)
+  i               | valparamkind    | Type(kind=integer, size=1)                                   | L1   | Offs 0    
+  a               | varkind         | Type(kind=integer, size=1)                                   | L1   | Offs 1    
+--- 快照结束 (变量声明之后 (文件日志)) ---
+
+
+--- 过程 q 作用域结束前 (文件日志) ---
+作用域层次: 0 (下一可用偏移: 2)
+  integer         | typekind        | Type(kind=integer, size=1)                                   | L0   | Offs 0    
+  char            | typekind        | Type(kind=char, size=1)                                      | L0   | Offs 0    
+  boolean         | typekind        | Type(kind=boolean, size=1)                                   | L0   | Offs 0    
+  p               | programkind     | Type(kind=program, size=0)                                   | L0   | Offs 0    
+  t1              | typekind        | Alias(name=t1 -> Type(kind=integer, size=1)) (size: 1)       | L0   | Offs 0    
+  v1              | varkind         | Type(kind=integer, size=1)                                   | L0   | Offs 0    
+  v2              | varkind         | Type(kind=integer, size=1)                                   | L0   | Offs 1    
+  q               | prockind        | ProcType(params=[Param(name='i', type=Type(kind=integer, size=1), var=False)]) | L0   | Offs 0     Params(i: Type(kind=integer, size=1))
+作用域层次: 1 (下一可用偏移: 2)
+  i               | valparamkind    | Type(kind=integer, size=1)                                   | L1   | Offs 0    
+  a               | varkind         | Type(kind=integer, size=1)                                   | L1   | Offs 1    
+--- 快照结束 (过程 q 作用域结束前 (文件日志)) ---
+
+  退出过程 'q' 作用域 (返回到层次 0)
+
+--- 最终符号表状态 (文件日志) ---
+作用域层次: 0 (下一可用偏移: 2)
+  integer         | typekind        | Type(kind=integer, size=1)                                   | L0   | Offs 0    
+  char            | typekind        | Type(kind=char, size=1)                                      | L0   | Offs 0    
+  boolean         | typekind        | Type(kind=boolean, size=1)                                   | L0   | Offs 0    
+  p               | programkind     | Type(kind=program, size=0)                                   | L0   | Offs 0    
+  t1              | typekind        | Alias(name=t1 -> Type(kind=integer, size=1)) (size: 1)       | L0   | Offs 0    
+  v1              | varkind         | Type(kind=integer, size=1)                                   | L0   | Offs 0    
+  v2              | varkind         | Type(kind=integer, size=1)                                   | L0   | Offs 1    
+  q               | prockind        | ProcType(params=[Param(name='i', type=Type(kind=integer, size=1), var=False)]) | L0   | Offs 0     Params(i: Type(kind=integer, size=1))
+--- 快照结束 (最终符号表状态 (文件日志)) ---
+
+
+--- 语义分析完成 ---
+语义分析成功完成 (无错误)。
+
+--- 完整分析流程结束 ---
